@@ -29,7 +29,7 @@
     ga('send', 'pageview');
 
   </script>
-  
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -66,7 +66,32 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-        
+        var form = document.getElementById('demo');
+
+        // Adds a listener for the "submit" event.
+        form.addEventListener('submit', function(event) {
+
+          // Prevents the browser from submitting the form
+          // and thus unloading the current page.
+          event.preventDefault();
+          alert("dsf");
+          // Sends the event to Google Analytics and
+          // resubmits the form once the hit is done.
+          // ga('send', 'event', 'Signup Form', 'submit', {
+          //   hitCallback: function() {
+          //     form.submit();
+          //   }
+          // });
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Signup',
+            eventAction: 'submit',
+            eventLabel: 'Miguel Cantillana <miguel@ewok.cl>'
+          });
+
+
+        });
+
     </script>
   </body>
 </html>
